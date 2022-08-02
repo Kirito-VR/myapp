@@ -62,20 +62,21 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.0",
-    "@tarojs/cli": "3.5.0",
-    "@types/webpack-env": "^1.13.6",
-    "@types/react": "^18.0.0",
-    "webpack": "5.69.0",
-    "@tarojs/webpack5-runner": "3.5.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.5.5",
-    "react-refresh": "0.11.0",
+    "@tarojs/cli": "3.5.0",
+    "@tarojs/webpack5-runner": "3.5.0",
+    "@types/react": "^18.0.0",
+    "@types/webpack-env": "^1.13.6",
     "babel-preset-taro": "3.5.0",
-    "eslint-config-taro": "3.5.0",
     "eslint": "^8.12.0",
-    "eslint-plugin-react": "^7.8.2",
+    "eslint-config-taro": "3.5.0",
     "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "stylelint": "9.3.0"
+    "prop-types": "^15.8.1",
+    "react-refresh": "0.11.0",
+    "stylelint": "9.3.0",
+    "webpack": "5.69.0"
   },
   "resolutions": {
     "@types/react": "^17.0.2"
