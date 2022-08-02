@@ -2,6 +2,7 @@ export default defineAppConfig({
   pages: [
     'pages/index/index',
     'pages/user/index',
+    'pages/cart/index',
     'pages/detail/index',
   ],
   window: {
@@ -27,6 +28,12 @@ export default defineAppConfig({
         iconPath:"./images/shop_no.png",
         selectedIconPath:"./images/shop_yes.png",
         text:"商城",
+      },
+      {
+        pagePath:"pages/cart/index",
+        iconPath:"./images/cart_no.png",
+        selectedIconPath:"./images/cart_yes.png",
+        text:"购物车",
       },
       {
         pagePath:"pages/user/index",

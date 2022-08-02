@@ -4,7 +4,7 @@ import {View} from "@tarojs/components";
 import { AtAvatar } from 'taro-ui'
 
 
-export default class index extends Component{
+class cart_history extends Component{
     render(){
       return (
         
