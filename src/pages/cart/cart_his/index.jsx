@@ -1,12 +1,13 @@
 import {Component} from 'react';
-import {View} from "@tarojs/components";
+import {View,Text} from "@tarojs/components";
+import './index.scss'
 
-export default class index extends Component{
+export default class cart_his extends Component{
   render(){
       return(
-        <div>
+        <Text>
           历史记录
-        </div>
+        </Text>
       )
     }
 }

@@ -2,24 +2,12 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Button, Text } from '@tarojs/components'
 
-import { add, minus, asyncAdd } from '../../actions/counter'
-
 import './index.scss'
 import { AtButton } from 'taro-ui'
 import MySwiper from '../../components/swiper'
 
 @connect(({ counter }) => ({
   counter
-}), (dispatch) => ({
-  add () {
-    dispatch(add())
-  },
-  dec () {
-    dispatch(minus())
-  },
-  asyncAdd () {
-    dispatch(asyncAdd())
-  }
 }))
 
 class Index extends Component {
