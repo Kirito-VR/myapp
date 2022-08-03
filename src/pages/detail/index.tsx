@@ -1,5 +1,5 @@
 import {Component} from 'react';
-import {View,Image,Text} from "@tarojs/components";
+import {View} from "@tarojs/components";
 import "./index.scss";
 import { AtSearchBar } from 'taro-ui'
 import { AtTabs, AtTabsPane } from 'taro-ui'
@@ -44,7 +44,6 @@ export default class index extends Component{
           </View>
           <View className="content">
             <AtTabs 
-            
             tabDirection='vertical' 
             current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}
             >
