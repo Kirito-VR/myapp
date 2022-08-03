@@ -1,7 +1,8 @@
 import {Component} from 'react';
 import {View,Image,Text} from "@tarojs/components";
 import "./index.scss";
-import { AtInput, AtForm } from 'taro-ui'
+import { AtSearchBar } from 'taro-ui'
+import { AtTabs, AtTabsPane } from 'taro-ui'
 
 export default class index extends Component{
   constructor (props) {
@@ -10,29 +11,53 @@ export default class index extends Component{
       value: '0'
     }
   }
-  handleChange (value) {
+  onChange (value) {
     this.setState({
-      value
+      value: value
     })
-    // 在小程序中，如果想改变 value 的值，需要 `return value` 从而改变输入框的当前值
-    return value
   }
+
+  onActionClick () {
+    console.log('开始搜索')
+  }
+
+  handleClick (value) {
+    this.setState({
+      current: value
+    })
+  }
+
+
+
   
     render(){
+      const tabList = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
       return (
         <View className="wapper">
           <View className="header">
-            <AtForm>
-            <AtInput
-              name='value'
-              title='请输入你所需要查询的商品'
-              type='text'
-              placeholder='请输入你所需要查询的商品'
+            <AtSearchBar
+              actionName='搜一下'
               value={this.state.value}
-              onChange={this.handleChange.bind(this)}
+              onChange={this.onChange.bind(this)}
+              onActionClick={this.onActionClick.bind(this)}
             />
-            </AtForm>
-         
+          </View>
+          <View className="content">
+            <AtTabs 
+            
+            tabDirection='vertical' 
+            current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}
+            >
+              <AtTabsPane current={this.state.current} index={0} >
+                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;' >标签页一的内容</View>
+              </AtTabsPane>
+              <AtTabsPane current={this.state.current} index={1}>
+                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</View>
+              </AtTabsPane>
+              <AtTabsPane current={this.state.current} index={2}>
+                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</View>
+              </AtTabsPane>
+            </AtTabs>
           </View>
         </View>
       );
