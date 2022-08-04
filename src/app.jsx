@@ -1,8 +1,6 @@
 import { Component } from 'react'
 import { Provider } from 'react-redux'
-
 import configStore from './store'
-
 import './app.scss'
 
 const store = configStore()
