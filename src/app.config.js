@@ -33,13 +33,13 @@ export default defineAppConfig({
         pagePath:"pages/cart/index",
         iconPath:"./images/cart_no.png",
         selectedIconPath:"./images/cart_yes.png",
-        text:"购物车",
+        text:"订单",
       },
       {
         pagePath:"pages/user/index",
         iconPath:"./images/me_no.png",
         selectedIconPath:"./images/me_yes.png",
-        text:"用户",
+        text:"我的",
       }
     ]
   }

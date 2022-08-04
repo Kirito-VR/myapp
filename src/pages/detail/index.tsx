@@ -1,14 +1,16 @@
 import {Component} from 'react';
-import {View,Image,Text} from "@tarojs/components";
+import {View} from "@tarojs/components";
 import "./index.scss";
 import { AtSearchBar } from 'taro-ui'
 import { AtTabs, AtTabsPane } from 'taro-ui'
+import { AtFloatLayout } from "taro-ui"
 
 export default class index extends Component{
   constructor (props) {
     super(props)
     this.state = {
-      value: '0'
+      value: '0',
+      current:''
     }
   }
   onChange (value) {
@@ -44,7 +46,6 @@ export default class index extends Component{
           </View>
           <View className="content">
             <AtTabs 
-            
             tabDirection='vertical' 
             current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}
             >
@@ -58,6 +59,10 @@ export default class index extends Component{
                 <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</View>
               </AtTabsPane>
             </AtTabs>
+          
+          </View>
+          <View className="foot">
+        
           </View>
         </View>
       );
