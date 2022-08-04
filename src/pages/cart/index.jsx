@@ -29,10 +29,10 @@ export default class index extends Component{
         </View>
       </AtTabsPane>
       <AtTabsPane current={this.state.current} index={1}>
-        <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
-            <View>1111</View>
+        <View style='background-color: #FAFBFC;'>
+            <View><Cart_his></Cart_his></View>
         </View>
-       <Cart_his></Cart_his>
+       
       </AtTabsPane>
       <AtTabsPane current={this.state.current} index={2}>
         <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
