@@ -9,9 +9,9 @@ import "./index.scss";
 export default class index extends Component{
     render(){
       return (
-        
+
         <View>
-          
+
           <View>
             <View className="info_div">
 
@@ -26,20 +26,16 @@ export default class index extends Component{
                 arrow='right'
                 iconInfo={{ size: 25, color: '#78A4FA', value: 'calendar', }}
               />
-              
               <AtListItem
                 title='个人信息'
                 arrow='right'
                 thumb='../../images/me_yes.png'
               />
-              
-                
               </AtList>
             </View>
-            
           </View>
           {/* <cart_his ceshi={ceshi}/> */}
-          
+
           {/* <AtButton type='primary'>按钮文案</AtButton> */}
         </View>
       );
