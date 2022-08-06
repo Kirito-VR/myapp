@@ -1,8 +1,9 @@
 import {Component} from 'react';
 import {View,Text} from "@tarojs/components";
 import { AtTabs, AtTabsPane } from 'taro-ui'
-// import cart_his from "./cart_his";
+
 import Cart_his from "./cart_his";
+
 
 
 export default class index extends Component{
@@ -16,12 +17,8 @@ export default class index extends Component{
   handleClick (value) {
     this.setState({
       current: value
-
-    })
-
     });
     console.log("6666")
-
   }
 
   render () {
@@ -34,17 +31,14 @@ export default class index extends Component{
         </View>
       </AtTabsPane>
       <AtTabsPane current={this.state.current} index={1}>
-
         <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
             <View>1111</View>
         </View>
         <cart_his></cart_his>
         <Text>为什么无法显示</Text>
-
         <View style='background-color: #FAFBFC;'>
             <View><Cart_his></Cart_his></View>
         </View>
-
       </AtTabsPane>
       <AtTabsPane current={this.state.current} index={2}>
         <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
