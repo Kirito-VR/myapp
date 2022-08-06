@@ -9,16 +9,17 @@ export default class index extends Component{
 
   constructor(props){
     super(props)
-    this.state={ 
+    this.state={
       openModal:false,
-      avatarUrl:"",
-      nickName:""
+      avatarUrl:"../../images/me_yes.png",
+      nickName:"未登录",
+      nameShow:false
     }
   }
   wxlogin(){
     Taro.getSetting({}).then(res=>{
         console.log(res)
-        if(res.authSetting['scope.userInfo']===false){
+        if(!res.authSetting['scope.userInfo']){
             // 提示授权
             // console.log("授权")
         }
@@ -33,16 +34,15 @@ export default class index extends Component{
                 })
                 console.log(res.userInfo.nickName)
             }).catch(error=>{
-                console.log(error); 
+                console.log(error);
             })
-          }     
+          }
     }).catch(error=>{
-      console.log(error); 
+      console.log(error);
     })
     this.setState({
-        openModal:false
-            
-        
+        openModal:false,
+        nameShow:true,
       })
   }
   handleopenModal=()=>{
@@ -57,14 +57,16 @@ export default class index extends Component{
   }
 
     render(){
-      const imgsrc='https://jdc.jd.com/img/200';
-      const {openModal,nickName,avatarUrl}=this.state
+      // @ts-ignore
+      const {openModal,nickName,avatarUrl, nameShow}=this.state;
+
       return (
           <View>
-            <View className="info_div">
+            <View className="info_div" >
               <AtAvatar circle image={avatarUrl} className="hearder_img"></AtAvatar>
-              <Text className="nick_name" onClick={this.handleopenModal}>请登录...</Text>
-              {nickName}
+              {/* <Text className="nick_name" onClick={this.handleopenModal}>{nickName}</Text> */}
+              {nameShow && <Text className="nick_name">{nickName}</Text>}
+              {!nameShow && <Text className="nick_name" onClick={this.handleopenModal}>未登录</Text>}
             </View>
             <AtModal isOpened={openModal}>
               <AtModalHeader>授权</AtModalHeader>
@@ -83,7 +85,7 @@ export default class index extends Component{
               <AtListItem
                 title='个人信息'
                 arrow='right'
-                thumb='../../images/me_yes.png' 
+                thumb='../../images/me_yes.png'
               />
               </AtList>
             </View>
