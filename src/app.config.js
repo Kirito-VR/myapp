@@ -4,11 +4,12 @@ export default defineAppConfig({
     'pages/user/index',
     'pages/cart/index',
     'pages/detail/index',
+    'pages/user/wxLogin/wxLogin'
   ],
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
+    navigationBarTitleText: '返回',
     navigationBarTextStyle: 'black'
   },
   tabBar:{
