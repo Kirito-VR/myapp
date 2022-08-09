@@ -4,13 +4,19 @@ import { AtList, AtListItem,AtGrid,AtAvatar} from "taro-ui"
 import "./index.scss";
 // @ts-ignore
 import Taro, { getOpenUserInfo, getUserInfo, login } from '@tarojs/taro'
-import { AtModal, AtModalHeader, AtModalContent, AtModalAction} from "taro-ui"
 
 export default class WxLogin extends Component{
   constructor(props){
     super(props)
     this.state={
-<<
+
+      avatarUrl:"../../images/me_yes.png",
+      nickName:"未登录",
+      userInfo:""
+    }
+  }
+  componentDidMount(){
+
   }
   componentDidShow(){
     this.setState({
@@ -21,19 +27,6 @@ export default class WxLogin extends Component{
     Taro.navigateTo({
         url:'wxLogin/wxLogin'
     })
-    // const userInfo=Taro.getStorageSync("login")
-    // if(!userInfo){
-    //     Taro.navigateTo({
-    //         url:'wxLogin/wxLogin'
-    //     })
-    //     this.setState({
-    //     userInfo:Taro.getStorageSync("login")
-    //     })
-    // }else{
-    //     this.setState({
-    //         userInfo:Taro.getStorageSync("login")
-    //     })
-    // } 
   }
 
     render(){
@@ -49,13 +42,6 @@ export default class WxLogin extends Component{
               {userInfo && <AtAvatar circle image={userInfo.avatarUrl} className="hearder_img"></AtAvatar>}
               {userInfo && <Text className="nick_name">{userInfo.nickName}</Text>}
             </View>
-            {/* <AtModal isOpened={openModal}>
-              <AtModalHeader>授权</AtModalHeader>
-              <AtModalContent>
-                将获取你的昵称，头像
-              </AtModalContent>
-              <AtModalAction> <Button onClick={this.closeModal}>取消</Button> <Button  onClick={this.onlogin.bind(this)} >确定</Button> </AtModalAction>
-            </AtModal> */}
             <View>
               <AtList>
               </AtList>
