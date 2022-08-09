@@ -9,12 +9,14 @@ export default class WxLogin extends Component{
   constructor(props){
     super(props)
     this.state={
+
       avatarUrl:"../../images/me_yes.png",
       nickName:"未登录",
       userInfo:""
     }
   }
   componentDidMount(){
+
   }
   componentDidShow(){
     this.setState({
@@ -42,16 +44,6 @@ export default class WxLogin extends Component{
             </View>
             <View>
               <AtList>
-                <AtListItem
-                  title='标题文字'
-                  arrow='right'
-                  iconInfo={{ size: 25, color: '#78A4FA', value: 'calendar', }}
-                />
-                <AtListItem
-                  title='个人信息'
-                  arrow='right'
-                  thumb='../../images/me_yes.png'
-                />
               </AtList>
             </View>
             <View>
