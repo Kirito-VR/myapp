@@ -1,5 +1,6 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
+import { View, Button, Text } from '@tarojs/components'
 import { View, Button, Text ,Checkbox } from '@tarojs/components'
 import './index.scss'
 import { AtButton,AtGrid } from 'taro-ui'
@@ -17,6 +18,7 @@ class Index extends Component {
       rotation_chart_images:['01','02','03','04','05']
     }
   }
+
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
@@ -65,6 +67,7 @@ class Index extends Component {
           活动专区
         </view>
       </View>
+
     )
   }
 }
