@@ -1,14 +1,14 @@
-import { Component } from 'react'
+import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button, Text ,Checkbox } from '@tarojs/components'
 import './index.scss'
-import { AtButton } from 'taro-ui'
+import { AtButton,AtGrid } from 'taro-ui'
 import MySwiper from '../../components/swiper'
+import Taro  from "@tarojs/taro";
 
 @connect(({ counter }) => ({
   counter
 }))
-
 class Index extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +20,6 @@ class Index extends Component {
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
-
   componentWillUnmount () { }
   // componentDidMount(){
   //   this.login
@@ -28,16 +27,46 @@ class Index extends Component {
   componentDidShow () { }
 
   componentDidHide () { }
+  // 跳转授权函数，点击一键登录就跳转授权界面
+    //定义函数跳转
+    jump =(url,data) =>{
+      Taro.navigateTo({
+        url: '/pages/test/test'
+      })
+   // 跳转
 
+  }
   render () {
     return (
       <View className='index' >
         {/*轮播图组件*/}
         <view><MySwiper banner={this.state.rotation_chart_images}></MySwiper></view>
+        <view>
+          <AtGrid   className='atGrid'  columnNum='2' data={
+          [
+            {
+              //网页图片，添加监听函数，实现跳转，url应该是获取的，应定义一个自定义的数组，构造函数，在挂在组件之前就获得数据
+              image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
+              value: '门店自取'
+            },
+            {
+              image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
+              value: '外卖送达'
+            },
+          ]
+        } />
+        </view>
+        {/*跳转到登录界面*/}
+        <view className='loginWechat' style='background-color: grey;width:100%;height:100px;' onClick={this.jump.bind('11212',this)}>
+          一键登录 加入会员
+        </view>
+        {/*跳转页面，跳转到相应的活动界面，跳转到一个组件里*/}
+        <view className='activity-area' style='background-color:silver;width:100%;height:130px' onClick={this.loginClick}>
+          活动专区
+        </view>
       </View>
     )
   }
 }
-
 export default Index
 
