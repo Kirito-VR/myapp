@@ -1,0 +1,33 @@
+.header {
+    margin: 4rem 0 90px 50px;
+    text-align: center;
+    width: 650px;
+    height: 200px;
+    line-height: 450px;
+  }
+  .header image {
+    margin: 0 auto;
+    padding: 0;
+    width: 200px;
+    height: 200px;
+  }
+  .wx-content {
+    padding-top: 2rem;
+    border-top: 1px solid #ccc;
+    margin-bottom: 90px;
+    /*display: flex;
+    justify-content: center;
+    flex-direction: row;*/
+    text-align: center;
+  }
+  .wx-content text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40px;
+  }
+  .bottom {
+    border-radius: 80px;
+    margin: 0 50px;
+    font-size: 35px;
+  }
+  /*# sourceMappingURL=wxLogin.css.map */

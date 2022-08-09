@@ -5,10 +5,10 @@
 
 .cart_hist{
   width: 100%;
-  background-color: aqua ;
+  // background-color: aqua ;
 }
 .cart_list{
-  height: 100px;
+  height: 200px;
   width: 100%;
   background-color: beige;
   margin: 20px auto 20px;
@@ -19,4 +19,8 @@
   float: right;
   color: red;
   font-size: 35px;
+}
+.tradeHeader{
+    border-bottom:1px solid black;
+    font-size: 25px;
 }

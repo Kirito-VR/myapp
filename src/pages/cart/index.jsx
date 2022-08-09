@@ -1,7 +1,9 @@
 import {Component} from 'react';
 import {View,Text} from "@tarojs/components";
 import { AtTabs, AtTabsPane } from 'taro-ui'
+
 import Cart_his from "./cart_his";
+
 
 
 export default class index extends Component{
@@ -32,7 +34,11 @@ export default class index extends Component{
         <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
             <View>1111</View>
         </View>
-       <Cart_his></Cart_his>
+        <cart_his></cart_his>
+        <Text>为什么无法显示</Text>
+        <View style='background-color: #FAFBFC;'>
+            <View><Cart_his></Cart_his></View>
+        </View>
       </AtTabsPane>
       <AtTabsPane current={this.state.current} index={2}>
         <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
