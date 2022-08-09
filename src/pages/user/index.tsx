@@ -1,90 +1,63 @@
 import {Component} from 'react';
 import {View,Text,Button} from "@tarojs/components";
-import { AtList, AtListItem,AtGrid,AtAvatar,AtButton} from "taro-ui"
+import { AtList, AtListItem,AtGrid,AtAvatar} from "taro-ui"
 import "./index.scss";
+// @ts-ignore
 import Taro, { getOpenUserInfo, getUserInfo, login } from '@tarojs/taro'
 import { AtModal, AtModalHeader, AtModalContent, AtModalAction} from "taro-ui"
 
-export default class index extends Component{
-
+export default class WxLogin extends Component{
   constructor(props){
     super(props)
     this.state={
-      openModal:false,
-      avatarUrl:"",
-      nickName:""
-    }
+<<
   }
-  wxlogin(){
-    Taro.getSetting({}).then(res=>{
-        console.log(res)
-        if(res.authSetting['scope.userInfo']===false){
-            // 提示授权
-            // console.log("授权")
-        }
-        if(res.authSetting['scope.userInfo']===true){
-            Taro.getUserProfile({
-              desc:"获取你的头像，昵称"
-            }).then(res=>{
-                console.log("用户信息：",res)
-                this.setState({
-                    avatarUrl:res.userInfo.avatarUrl,
-                    nickName:res.userInfo.nickName
-                })
-                console.log(res.userInfo.nickName)
-            }).catch(error=>{
-                console.log(error);
-            })
-          }
-    }).catch(error=>{
-      console.log(error);
-    })
+  componentDidShow(){
     this.setState({
-        openModal:false
-
-
-      })
+                userInfo:Taro.getStorageSync("login")
+            })
   }
   handleopenModal=()=>{
-    this.setState({
-      openModal:true
+    Taro.navigateTo({
+        url:'wxLogin/wxLogin'
     })
-  }
-  closeModal=()=>{
-    this.setState({
-      openModal:false
-    })
+    // const userInfo=Taro.getStorageSync("login")
+    // if(!userInfo){
+    //     Taro.navigateTo({
+    //         url:'wxLogin/wxLogin'
+    //     })
+    //     this.setState({
+    //     userInfo:Taro.getStorageSync("login")
+    //     })
+    // }else{
+    //     this.setState({
+    //         userInfo:Taro.getStorageSync("login")
+    //     })
+    // } 
   }
 
     render(){
-      const imgsrc='https://jdc.jd.com/img/200';
-      const {openModal,nickName,avatarUrl}=this.state
+      // @ts-ignore
+      const {nickName,avatarUrl,userInfo}=this.state;
+      console.log("用户信息",userInfo)
+      // @ts-ignore
       return (
           <View>
-            <View className="info_div">
-              <AtAvatar circle image={avatarUrl} className="hearder_img"></AtAvatar>
-              <Text className="nick_name" onClick={this.handleopenModal}>请登录...</Text>
-              {nickName}
+            <View className="info_div" >
+              {!userInfo && <AtAvatar circle image={avatarUrl} className="hearder_img"></AtAvatar>}
+              {!userInfo && <Text className="nick_name" onClick={this.handleopenModal}>{nickName}</Text>}
+              {userInfo && <AtAvatar circle image={userInfo.avatarUrl} className="hearder_img"></AtAvatar>}
+              {userInfo && <Text className="nick_name">{userInfo.nickName}</Text>}
             </View>
-            <AtModal isOpened={openModal}>
+            {/* <AtModal isOpened={openModal}>
               <AtModalHeader>授权</AtModalHeader>
               <AtModalContent>
                 将获取你的昵称，头像
               </AtModalContent>
-              <AtModalAction> <Button onClick={this.closeModal}>取消</Button> <Button  onClick={this.wxlogin.bind(this)} >确定</Button> </AtModalAction>
-            </AtModal>
+              <AtModalAction> <Button onClick={this.closeModal}>取消</Button> <Button  onClick={this.onlogin.bind(this)} >确定</Button> </AtModalAction>
+            </AtModal> */}
             <View>
               <AtList>
-              <AtListItem
-                title='标题文字'
-                arrow='right'
-                iconInfo={{ size: 25, color: '#78A4FA', value: 'calendar', }}
-              />
-              <AtListItem
-                title='个人信息'
-                arrow='right'
-                thumb='../../images/me_yes.png'
-              />
               </AtList>
             </View>
             <View>
