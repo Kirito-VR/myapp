@@ -31,7 +31,7 @@ export default class index extends Component{
 
 
 
-  
+
     render(){
       const tabList = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
       return (
@@ -45,8 +45,8 @@ export default class index extends Component{
             />
           </View>
           <View className="content">
-            <AtTabs 
-            tabDirection='vertical' 
+            <AtTabs
+            tabDirection='vertical'
             current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}
             >
               <AtTabsPane current={this.state.current} index={0} >

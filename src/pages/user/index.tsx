@@ -10,32 +10,7 @@ export default class WxLogin extends Component{
   constructor(props){
     super(props)
     this.state={
-      avatarUrl:"../../images/me_yes.png",
-      nickName:"未登录",
-      userInfo:""
-    }
-  }
-  componentDidMount(){
-    // Taro.getSetting({}).then(res=>{
-    //     if(!res.authSetting['scope.userInfo']){
-    //         Taro.navigateTo({
-    //             url:'wxLogin/wxLogin'
-    //         })
-    //     }if(res.authSetting['scope.userInfo']===true){
-    //         const userInfo=Taro.getStorageSync("login")
-    //         // this.setState({
-    //         //     nameShow:true
-    //         // })
-    //     }
-    // })
-    // const userInfo=Taro.getStorageSync("login")
-    // if(!userInfo){
-    //     Taro.navigateTo({
-    //         url:'wxLogin/wxLogin'
-    //     })
-    // }else{
-    //     const userInfo=Taro.getStorageSync("login")
-    // }
+<<
   }
   componentDidShow(){
     this.setState({
@@ -83,16 +58,6 @@ export default class WxLogin extends Component{
             </AtModal> */}
             <View>
               <AtList>
-                <AtListItem
-                  title='标题文字'
-                  arrow='right'
-                  iconInfo={{ size: 25, color: '#78A4FA', value: 'calendar', }}
-                />
-                <AtListItem
-                  title='个人信息'
-                  arrow='right'
-                  thumb='../../images/me_yes.png'
-                />
               </AtList>
             </View>
             <View>
