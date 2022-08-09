@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { View, Button, Text } from '@tarojs/components'
+
 import './index.scss'
 import { AtButton } from 'taro-ui'
 import MySwiper from '../../components/swiper'
@@ -17,6 +18,7 @@ class Index extends Component {
       rotation_chart_images:['01','02','03','04','05']
     }
   }
+
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
@@ -35,6 +37,7 @@ class Index extends Component {
         {/*轮播图组件*/}
         <view><MySwiper banner={this.state.rotation_chart_images}></MySwiper></view>
       </View>
+
     )
   }
 }
