@@ -1,7 +1,6 @@
 //import {Component} from 'react';
 import Taro, { Component } from '@tarojs/taro'
 import {View} from "@tarojs/components";
-
 import "./index.scss";
 import {AtButton, AtSearchBar } from 'taro-ui'
 import { AtTabs, AtTabsPane } from 'taro-ui'
@@ -39,10 +38,6 @@ export default class index extends Component{
 
     render(){
       const tabList = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
-      // @ts-ignore
-      // @ts-ignore
-      // @ts-ignore
-      // @ts-ignore
       return (
         <View className="wapper">
           <View className="header">
@@ -71,8 +66,8 @@ export default class index extends Component{
 
           </View>
           <View className="foot">
-            <AtList>
-              <AtListItem
+            <AtLi
+            <AtListItemst>
                 title='鸡蛋'
                 note='新品种欢迎尝试'
                 arrow='right'
