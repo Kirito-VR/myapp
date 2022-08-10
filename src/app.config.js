@@ -4,6 +4,7 @@ export default defineAppConfig({
     'pages/user/index',
     'pages/cart/index',
     'pages/detail/index',
+    'pages/user/wxLogin/wxLogin'
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -33,7 +34,7 @@ export default defineAppConfig({
         pagePath:"pages/cart/index",
         iconPath:"./images/cart_no.png",
         selectedIconPath:"./images/cart_yes.png",
-        text:"订单",
+        text:"购物车",
       },
       {
         pagePath:"pages/user/index",

@@ -1,13 +1,9 @@
-//import {Component} from 'react';
-import Taro, { Component } from '@tarojs/taro'
+import {Component} from 'react';
 import {View} from "@tarojs/components";
 import "./index.scss";
-import {AtButton, AtSearchBar } from 'taro-ui'
+import { AtSearchBar } from 'taro-ui'
 import { AtTabs, AtTabsPane } from 'taro-ui'
 import { AtFloatLayout } from "taro-ui"
-import { AtList, AtListItem } from "taro-ui"
-
-
 
 export default class index extends Component{
   constructor (props) {
@@ -50,44 +46,35 @@ export default class index extends Component{
           </View>
           <View className="content">
             <AtTabs
-            tabDirection='vertical'
-            current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}
-            >
-              <AtTabsPane current={this.state.current} index={0} >
-                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;' >标签页一的内容</View>
+              current={this.state.current}
+              scroll
+              height='600px'
+              tabDirection='vertical'
+              tabList={[
+                { title: '鸡' },
+                { title: '鸭' },
+                { title: '猪' },
+                { title: '蛋' },
+              ]}
+              onClick={this.handleClick.bind(this)}>
+              <AtTabsPane tabDirection='vertical' current={this.state.current} index={0}>
+                <View style='font-size:18px;text-align:center;height:600px;'>这是买鸡的</View>
               </AtTabsPane>
-              <AtTabsPane current={this.state.current} index={1}>
-                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</View>
+              <AtTabsPane tabDirection='vertical' current={this.state.current} index={1}>
+                <View style='font-size:18px;text-align:center;height:600px;'>这是买鸭的</View>
               </AtTabsPane>
-              <AtTabsPane current={this.state.current} index={2}>
-                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</View>
+              <AtTabsPane tabDirection='vertical' current={this.state.current} index={2}>
+                <View style='font-size:18px;text-align:center;height:600px;'>这是买猪的</View>
               </AtTabsPane>
+              <AtTabsPane tabDirection='vertical' current={this.state.current} index={2}>
+                <View style='font-size:18px;text-align:center;height:600px;'>这是买蛋的</View>
+              </AtTabsPane>
+
             </AtTabs>
 
           </View>
           <View className="foot">
-            <AtLi
-            <AtListItemst>
-                title='鸡蛋'
-                note='新品种欢迎尝试'
-                arrow='right'
-                thumb='https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png'
-              />
-              <AtListItem
-                title='鸡胸肉'
-                note='新品种欢迎尝试'
-                //arrow='right'
 
-                thumb='./detailImg/01.jpg'
-              />
-              <AtListItem
-                title='鸡螺蛳粉'
-                note='新品种欢迎尝试'
-                extraText='详细信息'
-                arrow='right'
-                thumb='http://img12.360buyimg.com/jdphoto/s72x72_jfs/t10660/330/203667368/1672/801735d7/59c85643N31e68303.png'
-              />
-            </AtList>
           </View>
         </View>
       );
