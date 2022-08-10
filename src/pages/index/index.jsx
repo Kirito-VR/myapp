@@ -26,16 +26,24 @@ class Index extends Component {
   //   this.login
   // }
   componentDidShow () { }
-
   componentDidHide () { }
   // 跳转授权函数，点击一键登录就跳转授权界面
-    //定义函数跳转
-    jump =(url,data) =>{
-      Taro.navigateTo({
-        url: '/pages/test/test'
-      })
-   // 跳转
+  //   //定义登录函数跳转
+  //   jump =() =>{
+  //     Taro.navigateTo({
+  //       url: '/pages/test/test',
+  //     })
+  // }
+  bossRecommend =()=>{
+    Taro.navigateTo({
+      url:
+        '/pages/activity/activity',
+      // ,'/pages/activity/activity',
+    })
+  }
 
+  handClick =(value) =>{
+    console.log(value);
   }
   render () {
     return (
@@ -48,21 +56,26 @@ class Index extends Component {
             {
               //网页图片，添加监听函数，实现跳转，url应该是获取的，应定义一个自定义的数组，构造函数，在挂在组件之前就获得数据
               image: 'https://img12.360buyimg.com/jdphoto/s72x72_jfs/t6160/14/2008729947/2754/7d512a86/595c3aeeNa89ddf71.png',
-              value: '门店自取'
+              value: '门店自取',
+              key:'1111',
             },
             {
               image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-              value: '外卖送达'
+              value: '外卖送达',
+              key:'2222',
             },
           ]
-        } />
+        }onClick ={
+            this.handClick.bind(this)
+          }
+          />
         </view>
         {/*跳转到登录界面*/}
-        <view className='loginWechat' style='background-color: grey;width:100%;height:100px;' onClick={this.jump.bind('11212',this)}>
+        <view className='loginWechat' style='background-color: grey;width:100%;height:100px;'>
           一键登录 加入会员
         </view>
         {/*跳转页面，跳转到相应的活动界面，跳转到一个组件里*/}
-        <view className='activity-area' style='background-color:silver;width:100%;height:130px' onClick={this.loginClick}>
+        <view className='activity-area' style='background-color:silver;width:100%;height:130px' onClick={this.bossRecommend.bind()}>
           活动专区
         </view>
       </View>
