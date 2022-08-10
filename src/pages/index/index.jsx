@@ -1,6 +1,5 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Button, Text } from '@tarojs/components'
 import { View, Button, Text ,Checkbox } from '@tarojs/components'
 import './index.scss'
 import { AtButton,AtGrid } from 'taro-ui'

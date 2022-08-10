@@ -29,6 +29,27 @@ export default class WxLogin extends Component{
     })
   }
 
+  handleClick(value){
+   console.log( value);
+
+   switch(value.value){
+       case "收藏商品":
+           Taro.switchTab({
+            url: '/pages/index/index',
+          });
+          console.log("111");
+
+        case "购物车":
+            Taro.switchTab({
+                url: '/pages/cart/index',
+              });
+          
+
+        
+   }
+    
+  }
+
     render(){
       // @ts-ignore
       const {nickName,avatarUrl,userInfo}=this.state;
@@ -66,7 +87,7 @@ export default class WxLogin extends Component{
                     value: '联系客服'
                     },
                 ]
-            } />
+            } onClick={this.handleClick.bind(this)} />
             </View>
           </View>
       );
