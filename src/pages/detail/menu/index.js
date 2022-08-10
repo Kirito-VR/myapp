@@ -7,7 +7,7 @@ export default class Menu extends Component{
   render(){
     return(
       <View>
-        
+        订单详情界面
       </View>
     )
   }
