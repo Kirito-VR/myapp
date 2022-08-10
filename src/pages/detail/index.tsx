@@ -33,7 +33,6 @@ export default class index extends Component{
 
 
     render(){
-      const tabList = [{ title: '标签页1' }, { title: '标签页2' }, { title: '标签页3' }]
       return (
         <View className="wapper">
           <View className="header">
@@ -46,23 +45,35 @@ export default class index extends Component{
           </View>
           <View className="content">
             <AtTabs
-            tabDirection='vertical'
-            current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}
-            >
-              <AtTabsPane current={this.state.current} index={0} >
-                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;' >标签页一的内容</View>
+              current={this.state.current}
+              scroll
+              height='600px'
+              tabDirection='vertical'
+              tabList={[
+                { title: '鸡' },
+                { title: '鸭' },
+                { title: '猪' },
+                { title: '蛋' },
+              ]}
+              onClick={this.handleClick.bind(this)}>
+              <AtTabsPane tabDirection='vertical' current={this.state.current} index={0}>
+                <View style='font-size:18px;text-align:center;height:600px;'>这是买鸡的</View>
               </AtTabsPane>
-              <AtTabsPane current={this.state.current} index={1}>
-                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页二的内容</View>
+              <AtTabsPane tabDirection='vertical' current={this.state.current} index={1}>
+                <View style='font-size:18px;text-align:center;height:600px;'>这是买鸭的</View>
               </AtTabsPane>
-              <AtTabsPane current={this.state.current} index={2}>
-                <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>标签页三的内容</View>
+              <AtTabsPane tabDirection='vertical' current={this.state.current} index={2}>
+                <View style='font-size:18px;text-align:center;height:600px;'>这是买猪的</View>
               </AtTabsPane>
+              <AtTabsPane tabDirection='vertical' current={this.state.current} index={2}>
+                <View style='font-size:18px;text-align:center;height:600px;'>这是买蛋的</View>
+              </AtTabsPane>
+
             </AtTabs>
-          
+
           </View>
           <View className="foot">
-        
+
           </View>
         </View>
       );
