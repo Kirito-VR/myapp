@@ -29,6 +29,32 @@ export default class WxLogin extends Component{
     })
   }
 
+  handleClick(value){
+   console.log( value);
+
+   switch(value.value){
+       case "收藏商品":
+           Taro.switchTab({
+            url: '/pages/index/index',
+          });
+          console.log("111");
+
+        case "购物车":
+            Taro.switchTab({
+                url: '/pages/cart/index',
+              });
+
+        case "个人信息":
+            Taro.navigateTo({
+                url: '/pages/user/userInfo/index',
+              });
+
+
+
+   }
+
+  }
+
     render(){
       // @ts-ignore
       const {nickName,avatarUrl,userInfo}=this.state;
@@ -43,8 +69,7 @@ export default class WxLogin extends Component{
               {userInfo && <Text className="nick_name">{userInfo.nickName}</Text>}
             </View>
             <View>
-              <AtList>
-              </AtList>
+
             </View>
             <View>
             <AtGrid mode='rect' hasBorder={false} data={
@@ -58,6 +83,10 @@ export default class WxLogin extends Component{
                     value: '购物车'
                     },
                     {
+                    image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
+                    value: '个人信息'
+                    },
+                    {
                     image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
                     value: '收货地址'
                     },
@@ -66,8 +95,9 @@ export default class WxLogin extends Component{
                     value: '联系客服'
                     },
                 ]
-            } />
+            } onClick={this.handleClick.bind(this)} />
             </View>
+            <input className="" placeholder='请输入密码'></input>
           </View>
       );
     }
