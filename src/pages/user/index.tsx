@@ -30,27 +30,26 @@ export default class WxLogin extends Component{
   }
 
   handleClick(value){
-   console.log( value);
-
+//    console.log( value);
    switch(value.value){
        case "收藏商品":
            Taro.switchTab({
             url: '/pages/index/index',
           });
           console.log("111");
+          break;
 
         case "购物车":
             Taro.switchTab({
                 url: '/pages/cart/index',
               });
+              break;
 
         case "个人信息":
             Taro.navigateTo({
                 url: '/pages/user/userInfo/index',
               });
-
-
-
+              break;
    }
 
   }
