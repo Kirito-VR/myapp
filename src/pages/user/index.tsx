@@ -10,13 +10,6 @@ export default class WxLogin extends Component{
     super(props)
     this.state={
 
-      avatarUrl:"../../images/me_yes.png",
-      nickName:"未登录",
-      userInfo:""
-    }
-  }
-  componentDidMount(){
-
   }
   componentDidShow(){
     this.setState({
@@ -52,7 +45,6 @@ export default class WxLogin extends Component{
 
 
    }
-
   }
 
     render(){
