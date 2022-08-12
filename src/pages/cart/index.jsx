@@ -18,18 +18,20 @@ export default class index extends Component{
     }
 
     getTotalPrice(){
-        const list = this.props.list
+        let list = this.props.list
+        // console.log(list);
         var total = 0;
         for (var i = 0; i <this.props.list.length; i++) {
             if (this.props.list[i].checked) {
-            total += this.props.list[i].cart_Amount * this.props.list[i].cart_Money 
+            total += this.props.list[i].cart_Amount * this.props.list[i].cart_Money
         }}
         return total;
     }
- 
+
       addCount(e) {
         const index = e.currentTarget.dataset.index
         const list=this.props.list;
+        console.log(list);
         let cart_Amount = list[index].cart_Amount
         cart_Amount = cart_Amount + 1
         list[index].cart_Amount = cart_Amount
@@ -40,15 +42,15 @@ export default class index extends Component{
         }
 
     checkList(id,e) {
-        const index = e.currentTarget.dataset.index
-        const list = this.props.list
+        let index = e.currentTarget.dataset.index
+        let list = this.props.list
         this.props.list.forEach(item => {
           if (id == item.id) {
             item.checked = !item.checked
           }
         })
         // this.setState({
-        //   list:list, 
+        //   list:list,
         // })
         const checkAllStatus = this.props.list.every(item => item.checked)
         this.setState({
@@ -70,7 +72,7 @@ export default class index extends Component{
         })
         this.getTotalPrice()
       }
-     
+
     componentDidMount(){
         Taro.request({
           url:"http://localhost:8090/cart/getCartList",
@@ -105,7 +107,7 @@ export default class index extends Component{
     this.setState({
       current: value
     });
-    
+
   }
 
   tradeClick(value){
@@ -115,7 +117,7 @@ export default class index extends Component{
   render () {
     const list = this.props.list;
     let checkAllStatus=this.props.checkAllStatus;
-    
+
     return (
 
         <View className="cart">
@@ -150,14 +152,14 @@ export default class index extends Component{
                       <Text
                         className="cart-count-add"
                         onClick={this.addCount}
-                        
+
                       >
                         +
                       </Text>
                     </View>
               <View class="Money">  ￥{item.cart_Money}</View>
             </View>
-            
+
           )
         })}
          <View className="cart-footer">
@@ -176,13 +178,14 @@ export default class index extends Component{
                   onClick={this.checkAll}
                 ></Icon>)}
                        <Text className="TotalPrice">合计：{this.getTotalPrice()}</Text>
-                       </View>
+         </View>
 
       <View>
         <Text>购物车</Text>
         <button onClick={this.tradeClick.bind(this)}>结算</button>
 
       </View>
+        </View>
 
     )
   }

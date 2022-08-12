@@ -72,7 +72,7 @@ export default class index extends Component{
       })
     }
 
-
+    
 
 
 
@@ -92,8 +92,12 @@ export default class index extends Component{
     })
   }
 
-  goodInfoClick(value){
-    Taro.navigateTo({url:"/pages/detail/menu/index"});
+  goodInfoClick(value,obj){
+    console.log(obj);
+    Taro.navigateTo({
+      url:'/pages/detail/menu/index?data='+JSON.stringify(obj)
+
+    });
   }
 
 
@@ -131,7 +135,7 @@ export default class index extends Component{
                       if(item.category_id==0){
                         // console.log(item)
                         return(
-                          <View className="shop_list" onClick={this.goodInfoClick.bind(item.index)}>
+                          <View className="shop_list" onClick={this.goodInfoClick.bind(this,item,item)}>
                             <View className="tradeHeader">
                               <Text>
                                 商品编号：{item.id}
@@ -159,7 +163,7 @@ export default class index extends Component{
                     this.state.menu.map((item)=>{
                       if(item.category_id==1){
                         return(
-                          <View className="shop_list" onClick={this.goodInfoClick.bind(item.index)}>
+                          <View className="shop_list" onClick={this.goodInfoClick.bind(this,item,item)}>
                             <View className="tradeHeader">
                               <Text>
                                 商品编号：{item.id}
@@ -186,7 +190,7 @@ export default class index extends Component{
                     this.state.menu.map((item)=>{
                       if(item.category_id==2){
                         return(
-                          <View className="shop_list" onClick={this.goodInfoClick.bind(item.index)}>
+                          <View className="shop_list" onClick={this.goodInfoClick.bind(this,item,item)}>
                             <View className="tradeHeader">
                               <Text>
                                 商品编号：{item.id}
@@ -213,7 +217,7 @@ export default class index extends Component{
                     this.state.menu.map((item)=>{
                       if(item.category_id==3){
                         return(
-                          <View className="shop_list" onClick={this.goodInfoClick.bind(item.index)}>
+                          <View className="shop_list" onClick={this.goodInfoClick.bind(this,item,item)}>
                             <View className="tradeHeader">
                               <Text>
                                 商品编号：{item.id}
