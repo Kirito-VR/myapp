@@ -3,6 +3,7 @@ import {Text, View} from "@tarojs/components";
 import "./index.scss";
 import { AtSearchBar } from 'taro-ui'
 import { AtTabs, AtTabsPane } from 'taro-ui'
+import Taro from "@tarojs/taro";
 import { AtFloatLayout } from "taro-ui"
 import { AtInputNumber } from 'taro-ui'
 
@@ -60,6 +61,10 @@ export default class index extends Component{
     })
   }
 
+  goodInfoClick(){
+    Taro.navigateTo({url:"/pages/detail/menu/index"});
+  }
+
 
 
 
@@ -92,12 +97,18 @@ export default class index extends Component{
                   {
                     menu.map((item)=>{
                       return(
-                        <View className="shop_list">
-                          <View className="tradeHeader">商品编号：{item.id} <Text>商品名称：{item.goods_name}</Text></View>
-                          <View>{item.brief}</View>
-                          <View class="Money"></View>
+                        <View className="shop_list" onClick={this.goodInfoClick.bind(item.index)}>
+                          <View className="tradeHeader">
+                            <Text>
+                                商品编号：{item.id} 
+                                商品名称：{item.goods_name}
+                            </Text>
+                            <View>{item.brief}</View>
+                            <View class="Money"></View>
+                          </View>
+                          
                           <View>
-                        
+                          <img className="photo" src={item.gallery.img[0]}alt=""/>
                           </View>
                         </View>
                       )
