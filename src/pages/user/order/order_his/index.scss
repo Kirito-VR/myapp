@@ -1,0 +1,26 @@
+.index {
+    flex-direction: column;
+    width: 100%;
+  }
+
+.order_hist{
+  width: 100%;
+  // background-color: aqua ;
+}
+.order_list{
+  height: 200px;
+  width: 100%;
+  background-color: beige;
+  margin: 20px auto 20px;
+}
+
+.Money{
+  width: 200px;
+  float: right;
+  color: red;
+  font-size: 35px;
+}
+.tradeHeader{
+    border-bottom:1px solid black;
+    font-size: 25px;
+}

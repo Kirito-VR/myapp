@@ -105,7 +105,11 @@ export default class index extends Component{
     this.setState({
       current: value
     });
-    console.log("6666")
+    
+  }
+
+  tradeClick(value){
+    console.log("value")
   }
 
   render () {
@@ -113,6 +117,7 @@ export default class index extends Component{
     let checkAllStatus=this.props.checkAllStatus;
     
     return (
+
         <View className="cart">
         {list.map((item)=>{
           return(
@@ -172,6 +177,11 @@ export default class index extends Component{
                 ></Icon>)}
                        <Text className="TotalPrice">合计：{this.getTotalPrice()}</Text>
                        </View>
+
+      <View>
+        <Text>购物车</Text>
+        <button onClick={this.tradeClick.bind(this)}>结算</button>
+
       </View>
 
     )
