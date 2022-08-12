@@ -9,7 +9,11 @@ import Taro, { getOpenUserInfo, getUserInfo, login } from '@tarojs/taro'
 export default class WxLogin extends Component{
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = {
+      avatarUrl:"../../images/me_yes.png",
+      nickName:"未登录",
+      userInfo:""
+    }
   }
   componentDidShow(){
     this.setState({

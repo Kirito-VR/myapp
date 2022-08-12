@@ -15,7 +15,7 @@ constructor (props) {
   render(){
     return(
       <View>
-        订单详情界面
+        
       </View>
     )
   }
