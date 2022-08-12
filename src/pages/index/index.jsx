@@ -17,6 +17,7 @@ class Index extends Component {
       rotation_chart_images:['01','02','03','04','05']
     }
   }
+
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
@@ -78,6 +79,7 @@ class Index extends Component {
           活动专区
         </view>
       </View>
+
     )
   }
 }

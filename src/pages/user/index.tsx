@@ -4,13 +4,12 @@ import { AtList, AtListItem,AtGrid,AtAvatar} from "taro-ui"
 import "./index.scss";
 // @ts-ignore
 import Taro, { getOpenUserInfo, getUserInfo, login } from '@tarojs/taro'
-import { AtModal, AtModalHeader, AtModalContent, AtModalAction} from "taro-ui"
 
 export default class WxLogin extends Component{
   constructor(props){
     super(props)
     this.state={
-  }
+
   }
   componentDidShow(){
     this.setState({
@@ -21,19 +20,31 @@ export default class WxLogin extends Component{
     Taro.navigateTo({
         url:'wxLogin/wxLogin'
     })
-    // const userInfo=Taro.getStorageSync("login")
-    // if(!userInfo){
-    //     Taro.navigateTo({
-    //         url:'wxLogin/wxLogin'
-    //     })
-    //     this.setState({
-    //     userInfo:Taro.getStorageSync("login")
-    //     })
-    // }else{
-    //     this.setState({
-    //         userInfo:Taro.getStorageSync("login")
-    //     })
-    // }
+  }
+
+  handleClick(value){
+   console.log( value);
+
+   switch(value.value){
+       case "收藏商品":
+           Taro.switchTab({
+            url: '/pages/index/index',
+          });
+          console.log("111");
+
+        case "购物车":
+            Taro.switchTab({
+                url: '/pages/cart/index',
+              });
+
+        case "个人信息":
+            Taro.navigateTo({
+                url: '/pages/user/userInfo/index',
+              });
+
+
+
+   }
   }
 
     render(){
@@ -49,16 +60,8 @@ export default class WxLogin extends Component{
               {userInfo && <AtAvatar circle image={userInfo.avatarUrl} className="hearder_img"></AtAvatar>}
               {userInfo && <Text className="nick_name">{userInfo.nickName}</Text>}
             </View>
-            {/* <AtModal isOpened={openModal}>
-              <AtModalHeader>授权</AtModalHeader>
-              <AtModalContent>
-                将获取你的昵称，头像
-              </AtModalContent>
-              <AtModalAction> <Button onClick={this.closeModal}>取消</Button> <Button  onClick={this.onlogin.bind(this)} >确定</Button> </AtModalAction>
-            </AtModal> */}
             <View>
-              <AtList>
-              </AtList>
+
             </View>
             <View>
             <AtGrid mode='rect' hasBorder={false} data={
@@ -72,6 +75,10 @@ export default class WxLogin extends Component{
                     value: '购物车'
                     },
                     {
+                    image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
+                    value: '个人信息'
+                    },
+                    {
                     image: 'https://img10.360buyimg.com/jdphoto/s72x72_jfs/t5872/209/5240187906/2872/8fa98cd/595c3b2aN4155b931.png',
                     value: '收货地址'
                     },
@@ -80,8 +87,9 @@ export default class WxLogin extends Component{
                     value: '联系客服'
                     },
                 ]
-            } />
+            } onClick={this.handleClick.bind(this)} />
             </View>
+            <input className="" placeholder='请输入密码'></input>
           </View>
       );
     }
