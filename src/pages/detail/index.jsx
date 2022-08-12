@@ -9,6 +9,9 @@ import { AtInputNumber } from 'taro-ui'
 
 export default class index extends Component{
 
+    componentDidMount(){
+        Taro.request()
+    }
 
 
   static defaultProps = {
@@ -41,7 +44,7 @@ export default class index extends Component{
   constructor (props) {
     super(props)
     this.state = {
-      value: '0',
+      value: '',
       current:''
     }
   }
@@ -61,7 +64,7 @@ export default class index extends Component{
     })
   }
 
-  goodInfoClick(){
+  goodInfoClick(value){
     Taro.navigateTo({url:"/pages/detail/menu/index"});
   }
 

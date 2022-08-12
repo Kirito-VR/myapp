@@ -18,7 +18,11 @@ export default class index extends Component{
     this.setState({
       current: value
     });
-    console.log("6666")
+    
+  }
+
+  tradeClick(value){
+    console.log("value")
   }
 
   render () {
@@ -26,6 +30,7 @@ export default class index extends Component{
     return (
       <View>
         <Text>购物车</Text>
+        <button onClick={this.tradeClick.bind(this)}>结算</button>
       </View>
 
     )
