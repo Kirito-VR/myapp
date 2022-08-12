@@ -26,13 +26,7 @@ class Index extends Component {
   // }
   componentDidShow () { }
   componentDidHide () { }
-  // 跳转授权函数，点击一键登录就跳转授权界面
-  //   //定义登录函数跳转
-  //   jump =() =>{
-  //     Taro.navigateTo({
-  //       url: '/pages/test/test',
-  //     })
-  // }
+  //老板推荐函数
   bossRecommend =()=>{
     Taro.navigateTo({
       url:
@@ -40,9 +34,15 @@ class Index extends Component {
       // ,'/pages/activity/activity',
     })
   }
-
+  //外卖
   handClick =(value) =>{
     console.log(value);
+  }
+  //定义点击跳转函数
+  login = ()=>{
+    Taro.navigateTo({
+      url:'/',
+    })
   }
   render () {
     return (
@@ -70,7 +70,7 @@ class Index extends Component {
           />
         </view>
         {/*跳转到登录界面*/}
-        <view className='loginWechat' style='background-color: grey;width:100%;height:100px;'>
+        <view className='loginWechat' style='background-color: grey;width:100%;height:100px;' onClick={this.login.bind()}>
           一键登录 加入会员
         </view>
         {/*跳转页面，跳转到相应的活动界面，跳转到一个组件里*/}

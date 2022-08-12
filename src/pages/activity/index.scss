@@ -1,13 +1,31 @@
 .BossRecom Image{
   width: 100%;
 }
-.BossRecom{
-
-}
 .jiesshao{
   background-color: darkslategrey;
   color:white;
   width: auto;
   height: 60px;
   align:center;
+}
+.edit-image{
+  height: 60px;
+}
+.each-content{
+  width: 80%;
+  height: 130px;
+  background-color: aliceblue;
+  position: relative;
+  float: left;
+}
+.phone-content{
+  font-size: x-small;
+}
+.image-view{
+  width: 20%;
+  height: 130px;
+  position: relative;
+  float: right;
+  line-height: 130px;
+  background-color: white;
 }

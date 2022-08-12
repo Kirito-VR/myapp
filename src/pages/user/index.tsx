@@ -10,7 +10,7 @@ export default class WxLogin extends Component{
   constructor(props){
     super(props)
     this.state={
-<<
+  }
   }
   componentDidShow(){
     this.setState({
@@ -33,7 +33,7 @@ export default class WxLogin extends Component{
     //     this.setState({
     //         userInfo:Taro.getStorageSync("login")
     //     })
-    // } 
+    // }
   }
 
     render(){
