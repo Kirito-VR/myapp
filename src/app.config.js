@@ -4,7 +4,6 @@ export default defineAppConfig({
     'pages/user/index',
     'pages/cart/index',
     'pages/detail/index',
-
     'pages/user/address/index',
     'pages/user/address/newAddress/index',
     'pages/user/address/editAddress/index',
