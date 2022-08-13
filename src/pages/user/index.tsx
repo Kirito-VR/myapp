@@ -5,11 +5,15 @@ import "./index.scss";
 // @ts-ignore
 import Taro, { getOpenUserInfo, getUserInfo, login } from '@tarojs/taro'
 
-export default class WxLogin extends Component{
-  constructor(props){
-    super(props)
-    this.state={
 
+export default class WxLogin extends Component{
+  constructor(props) {
+    super(props)
+    this.state = {
+      avatarUrl:"../../images/me_yes.png",
+      nickName:"未登录",
+      userInfo:""
+    }
   }
   componentDidShow(){
     this.setState({
@@ -31,16 +35,20 @@ export default class WxLogin extends Component{
             url: '/pages/index/index',
           });
           console.log("111");
+         break;
 
-        case "购物车":
-            Taro.switchTab({
-                url: '/pages/cart/index',
+        case "订单":
+            Taro.navigateTo({
+                url: '/pages/user/order/index',
               });
+
+            break;
 
         case "个人信息":
             Taro.navigateTo({
                 url: '/pages/user/userInfo/index',
               });
+          break;
 
 
 
@@ -72,7 +80,7 @@ export default class WxLogin extends Component{
                     },
                     {
                     image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
-                    value: '购物车'
+                    value: '订单'
                     },
                     {
                     image: 'https://img20.360buyimg.com/jdphoto/s72x72_jfs/t15151/308/1012305375/2300/536ee6ef/5a411466N040a074b.png',
