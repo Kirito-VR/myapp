@@ -21,14 +21,14 @@ constructor (props) {
       Taro.getStorage({
         key:"GoodInfotemp",
         success:(res)=>{
-          console.log("123",res.data) 
+          console.log("123",res.data)
           this.setState({
             goodInfo:res.data,
             goodShow:true
           },()=>{console.log(this.state.goodShow)})
         }
       })
-      
+
 
     }
   render(){
@@ -37,11 +37,20 @@ constructor (props) {
       <View>
         {
           show?
-          <img className="headerImg" src={this.state.goodInfo.gallery} alt=""></img>
+            <View>
+              <img className="headerImg" src={this.state.goodInfo.gallery} alt=""></img>
+              <view className="title_Header"><Text>{this.state.goodInfo.goods_name}</Text></view>
+              <View>{this.state.goodInfo.brief}</View>
+
+              <View className="insertCart">
+                加入购物车
+              </View>
+            </View>
+
           :
           <View>内容无法加载</View>
         }
-       
+
       </View>
     )
   }
