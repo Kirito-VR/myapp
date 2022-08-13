@@ -11,6 +11,7 @@ export default class WxLogin extends Component{
     this.state={
 
   }
+  }
   componentDidShow(){
     this.setState({
                 userInfo:Taro.getStorageSync("login")
