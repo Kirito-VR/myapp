@@ -31,7 +31,7 @@ class Index extends Component {
   bossRecommend =()=>{
     Taro.navigateTo({
       url:
-        '/pages/activity/activity',
+        '/pages/activity/index',
       // ,'/pages/activity/activity',
     })
   }

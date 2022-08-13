@@ -85,7 +85,11 @@ export default class index extends Component{
           dataType: 'json',
           success:(res)=>{
             console.log("成功调用");
-            console.log(res);
+            console.log(res.data.data);
+            Taro.setStorage({
+                key:"cart_List",
+                data:res.data.data
+            })
           },
           fail: function (errMsg) {
             Taro.showToast({
