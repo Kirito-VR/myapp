@@ -17,16 +17,21 @@ class Index extends Component {
       rotation_chart_images:['01','02','03','04','05']
     }
   }
+
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
+  componentWillUnmount () { }
+  // componentDidMount(){
+  //   this.login
+  // }
   componentDidShow () { }
   componentDidHide () { }
   //老板推荐函数
   bossRecommend =()=>{
     Taro.navigateTo({
       url:
-        '/pages/user/address/index',
+        '/pages/activity/activity',
       // ,'/pages/activity/activity',
     })
   }
@@ -65,7 +70,7 @@ class Index extends Component {
           }
           />
         </view>
-        跳转到登录界面
+        {/*跳转到登录界面*/}
         <view className='loginWechat' style='background-color: grey;width:100%;height:100px;' onClick={this.login.bind()}>
           一键登录 加入会员
         </view>
