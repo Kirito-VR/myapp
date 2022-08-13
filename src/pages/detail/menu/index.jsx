@@ -12,18 +12,36 @@ constructor (props) {
     super(props)
     this.state = {
         value: '',
-        goodInfo:JSON.parse(getCurrentInstance().router.params.data)
+        goodInfo:{},
+        goodShow:false
     }
     }
 
     componentDidMount(){
-      console.log("123",this.state.goodInfo)
+      Taro.getStorage({
+        key:"GoodInfotemp",
+        success:(res)=>{
+          console.log("123",res.data) 
+          this.setState({
+            goodInfo:res.data,
+            goodShow:true
+          },()=>{console.log(this.state.goodShow)})
+        }
+      })
+      
 
     }
   render(){
+    const show = this.state.goodShow
     return(
       <View>
-       <img className="headerImg" src={this.state.goodInfo.gallery} alt=""></img>
+        {
+          show?
+          <img className="headerImg" src={this.state.goodInfo.gallery} alt=""></img>
+          :
+          <View>内容无法加载</View>
+        }
+       
       </View>
     )
   }
