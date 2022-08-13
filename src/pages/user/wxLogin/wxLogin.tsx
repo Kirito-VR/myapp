@@ -1,7 +1,8 @@
 import {Component} from 'react';
 import {View,Text,Button,Image} from "@tarojs/components";
 import './wxLogin.scss'
-import Taro, { getOpenUserInfo, getUserInfo, login } from '@tarojs/taro'
+// @ts-ignore
+import Taro from '@tarojs/taro'
 
 class WxLogin extends Component{
   constructor(props){
