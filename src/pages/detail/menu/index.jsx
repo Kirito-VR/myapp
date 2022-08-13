@@ -1,9 +1,9 @@
 import Taro from '@tarojs/taro'
 import {Component} from 'react'
-import { View, Text } from '@tarojs/components'
+import { View, Text, } from '@tarojs/components'
 // import classNames from 'classnames'
 import './index.scss'
-import {getCurrentInstance} from "@tarojs/taro";
+import {AtFloatLayout} from "@tarojs/taro";
 import { Swiper, SwiperItem, Image } from '@tarojs/components';
 
 export default class index extends Component{
@@ -13,7 +13,8 @@ constructor (props) {
     this.state = {
         value: '',
         goodInfo:{},
-        goodShow:false
+        goodShow:false,
+        isOpened:true
     }
     }
 
@@ -32,9 +33,10 @@ constructor (props) {
 
     }
   render(){
-    const show = this.state.goodShow
+    const show = this.state.goodShow;
+    const isOpened = this.state.isOpened
     return(
-      <View>
+      <View className="content">
         {
           show?
             <View>
@@ -42,9 +44,7 @@ constructor (props) {
               <view className="title_Header"><Text>{this.state.goodInfo.goods_name}</Text></view>
               <View>{this.state.goodInfo.brief}</View>
 
-              <View className="insertCart">
-                加入购物车
-              </View>
+              <View className="insertCart">加入购物车</View>
             </View>
 
           :

@@ -1,8 +1,9 @@
 import {Component} from 'react';
 import {View,Text,Icon} from "@tarojs/components";
-import { AtTabs, AtTabsPane } from 'taro-ui'
+import { AtTabs, AtTabsPane, } from 'taro-ui'
 import './index.scss';
 import Taro from "@tarojs/taro";
+
 
 
 

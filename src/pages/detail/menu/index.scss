@@ -11,5 +11,10 @@
   position: sticky;
   top:100px;
   border: 1px solid ;
-  float: bottom;
+  bottom: 0;
+}
+
+.content{
+  height: 100%;
+  background-color: aqua;
 }
