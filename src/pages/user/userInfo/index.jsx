@@ -11,11 +11,11 @@ export default class UserInfo extends Component{
     super(...arguments)
     this.state = {
       value:"",
-    
+
         username:"liwei",
         password:"lw1234"
-      
-      
+
+
 
     }
   }
@@ -24,7 +24,7 @@ export default class UserInfo extends Component{
     this.setState({
         username: value,
 
-      
+
     })
     // 在小程序中，如果想改变 value 的值，需要 `return value` 从而改变输入框的当前值
     return value
