@@ -37,7 +37,7 @@ class Index extends Component {
   //定义点击跳转函数
   login = ()=>{
     Taro.navigateTo({
-      url:'/',
+      url:'/pages/user/wxLogin/wxLogin',
     })
   }
   render () {
