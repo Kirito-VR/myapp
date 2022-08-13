@@ -16,6 +16,12 @@ export default class MySwiper extends Component {
   static defaultProps = {
     banner1: [],
   };
+  jump = (data) =>{
+    console.log(data);
+    // Taro.navigateTo({
+    //   url:''
+    // })
+  }
   render () {
     let data   =this.props.banner
     return (
@@ -29,7 +35,7 @@ export default class MySwiper extends Component {
         {
           data && data.map((item, index) => (
             <SwiperItem key={index}>
-              <Image className="swiper-img" src={require(`./../../images/${item}.jpg`)} mode='widthFix'></Image>
+              <Image className="swiper-img" src={require(`./../../images/${item}.jpg`)} mode='aspectFill' onClick={this.jump.bind(this)} ></Image>
           </SwiperItem>
           ))
         }

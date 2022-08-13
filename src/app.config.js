@@ -5,7 +5,11 @@ export default defineAppConfig({
     'pages/cart/index',
     'pages/detail/index',
     'pages/user/wxLogin/wxLogin',
-    'pages/user/userInfo/index'
+    'pages/user/userInfo/index',
+    'pages/detail/menu/index',
+    'pages/activity/activity',
+    'pages/user/order/index'
+
   ],
   window: {
     backgroundTextStyle: 'light',

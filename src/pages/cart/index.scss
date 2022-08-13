@@ -1,0 +1,54 @@
+.index {
+    flex-direction: column;
+    width: 100%;
+  }
+
+.cart{
+  width: 100%;
+   background-color:gray ;
+}
+.cartlist{
+  height: 200px;
+  width: 100%;
+  background-color: beige;
+  margin: 20px auto 20px;
+  font-size: 40px;
+}
+.TotalPrice{
+    margin-left:80px;
+    text-align: center;
+    width: 100px;
+    color:  #b30000;
+    font-size: 45px;
+  }
+  
+.Amount{
+    width: 200px;
+    float: right;
+    color: rgb(13, 8, 58);
+    font-size: 35px;
+  }
+
+.cart-count-down,.cart-count-add{
+    font-size: 32px;
+    width: 60px;
+    height: 80px;
+    border: silver solid 1px;
+    border-radius: 10px;
+  }
+.Money{
+  width: 200px;
+  float: right;
+  color: red;
+  font-size: 35px;
+}
+.tradeHeader{
+    border-bottom:1px solid black;
+    font-size: 25px;
+}
+// .total_money{
+//     width: 200px;
+//     float: left;
+//     color: red;
+//     font-size: 35px;
+// }
