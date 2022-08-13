@@ -9,7 +9,7 @@ export default class NewAddress extends Component{
   constructor(props){
     super(props);
     this.state = {
-      //传tkoen 用户编号进来
+      //传token 用户编号进来
       token:'',
       userId:'',
 
