@@ -17,6 +17,13 @@ export default class activity extends Component{
     temp:[],
     displayWeahter:false,
   }
+  onLoad(options) {
+    let userId =options.userId;
+    // console.log(userId);
+    this.setState({
+      userId
+    });
+  }
   componentWillMount(){
   };
   componentDidShow(){

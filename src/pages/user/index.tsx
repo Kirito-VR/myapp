@@ -14,8 +14,8 @@ export default class WxLogin extends Component{
       nickName:"未登录",
       userInfo:""
     }
-  }
-  }
+  };
+
   componentDidShow(){
     this.setState({
                 userInfo:Taro.getStorageSync("login")

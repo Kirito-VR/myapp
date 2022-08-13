@@ -12,8 +12,6 @@ export default class NewAddress extends Component{
       //传tkoen 用户编号进来
       token:'',
       userId:'',
-
-
       tel:'',
       county:'',
       city:'',
