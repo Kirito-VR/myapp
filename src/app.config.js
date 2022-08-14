@@ -12,6 +12,7 @@ export default defineAppConfig({
     'pages/detail/menu/index',
     'pages/activity/index',
     'pages/user/order/index'
+
   ],
   window: {
     backgroundTextStyle: 'light',
