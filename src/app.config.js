@@ -11,8 +11,9 @@ export default defineAppConfig({
     'pages/user/userInfo/index',
     'pages/detail/menu/index',
     'pages/activity/index',
-    'pages/user/order/index'
-
+    'pages/user/order/index',
+    'pages/user/order/order_his/order_detail/index',
+    'pages/user/order/order_his/order_info/index'
   ],
   window: {
     backgroundTextStyle: 'light',

@@ -5,12 +5,15 @@
 
 .cart{
   width: 100%;
-   background-color:gray ;
+   //background-color:gray ;
 }
 .cartlist{
   height: 200px;
   width: 100%;
-  background-color: beige;
+  border:silver 1px solid;
+  box-shadow: 0 10px 8px -2px silver;
+  background-color: white;
+
   margin: 20px auto 20px;
   font-size: 40px;
 }

@@ -72,7 +72,7 @@ export default class index extends Component{
       })
     }
 
-    
+
 
 
 
@@ -146,7 +146,7 @@ export default class index extends Component{
                                 商品名称：{item.goods_name}
                               </Text>
                               <View>{item.brief}</View>
-                              <View class="Money"></View>
+                              <View><Text className={"price_Style"}>单价：{item.retail_price}元/{item.unit}</Text></View>
                             </View>
 
                             <View>
@@ -174,7 +174,7 @@ export default class index extends Component{
                                 商品名称：{item.goods_name}
                               </Text>
                               <View>{item.brief}</View>
-                              <View class="Money"></View>
+                              <View><Text className={"price_Style"}>单价：{item.retail_price}元/{item.unit}</Text></View>
                             </View>
 
                             <View>
@@ -201,7 +201,8 @@ export default class index extends Component{
                                 商品名称：{item.goods_name}
                               </Text>
                               <View>{item.brief}</View>
-                              <View class="Money"></View>
+                              <View><Text className={"price_Style"}>单价：{item.retail_price}元/{item.unit}</Text></View>
+
                             </View>
 
                             <View>
@@ -228,7 +229,7 @@ export default class index extends Component{
                                 商品名称：{item.goods_name}
                               </Text>
                               <View>{item.brief}</View>
-                              <View class="Money"></View>
+                              <View><Text className={"price_Style"}>单价：{item.retail_price}元/{item.unit}</Text></View>
                             </View>
 
                             <View>

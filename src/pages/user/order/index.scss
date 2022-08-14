@@ -4,16 +4,20 @@
 }
 .goods_img{
     float: left;
-    
+
 }
 .order_list{
-    width: 100%;
+    width: 98%;
     height: 200px;
+    border:  silver 1px solid;
+    border-radius: 20px;
+    margin: 10px 10px 10px 10px;
+    Box-shadow:0 8px 2px -2px  silver
 }
 .OrderDetail {
     margin-top: 95px;
   }
-  
+
   .btnOrderDetail {
     font-size: small;
     width: 160px;

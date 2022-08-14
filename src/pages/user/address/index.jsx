@@ -11,7 +11,7 @@ export default class activity extends Component{
     // console.log(this.state.addressList);
   };
   state = {
-    userId:'1234',
+    userId:Taro.getStorageSync("loginstatus"),
     token:'',
     addressList:[],
     temp:[],
@@ -36,7 +36,8 @@ export default class activity extends Component{
   //新增收货地址函数跳转
   //传参，传改用户id
   newAddress =() =>{
-    console.log('1')
+    console.log(Taro.getStorageSync("loginstatus"))
+
     Taro.navigateTo({
       url:'/pages/user/address/newAddress/index?userId='+this.state.userId,
     })

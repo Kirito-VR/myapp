@@ -67,43 +67,41 @@ export default class index extends Component {
             <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
                 {/* 订单进行中界面 */}
                 <AtTabsPane current={this.state.current} index={0}>
-                    <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
-                        订单进行中
-                    </View>
-                    {orderList.map((item) => {
+                    <View style='background-color: #FAFBFC;text-align: center;'>
+                      {orderList.map((item) => {
                         return (
-                            <View className="order_list" style="margin-bottom: 20px;">
-                                {/* 订单详情 */}
-                                <View className='order_info'>
-                                    <View className="goods_img">
-                                      <img width='100px' height='100px' src={require("../../../images/iceKingLemoTea.png")} alt="" />
-                                    </View>
-                                    <View className="consignee"><Text>商品名称：{item.message} </Text></View>
-                                    <View class="OrderDetail">
-                                        <button class="btnOrderDetail" onClick={(e) => { e.stopPropagation(); this.showOrderDetail(item.id,item.consignee,item.address,item.mobile) }}>订单详情</button>
-                                    </View>
-                                </View>
+                          <View className="order_list" style="margin-bottom: 20px;">
+                            {/* 订单详情 */}
+                            <View className='order_info'>
+                              <View className="goods_img">
+                                <img width='100px' height='100px' src={require("../../../images/iceKingLemoTea.png")} alt="" />
+                              </View>
+                              <View className="consignee"><Text>商品名称：{item.message} </Text></View>
+                              <View class="OrderDetail">
+                                <button class="btnOrderDetail" onClick={(e) => { e.stopPropagation(); this.showOrderDetail(item.id,item.consignee,item.address,item.mobile) }}>订单详情</button>
+                              </View>
                             </View>
+                          </View>
                         )
-                    })}
+                      })}
+                    </View>
+
 
                 </AtTabsPane>
                 {/* 历史订单界面 */}
                 <AtTabsPane current={this.state.current} index={1}>
-                    <View style='padding: 100px 50px;background-color: #FAFBFC;text-align: center;'>
-                        <View>历史订单</View>
-                    </View>
-                    <order_his>
-
-                    </order_his>
-                    <Text>为什么无法显示</Text>
-                    <View style='background-color: #FAFBFC;'>
+                    <View style='background-color: #FAFBFC;text-align: center;'>
                         <View>
+                          <View style='background-color: #FAFBFC;'>
+                          <View>
                             <Order_his>
 
                             </Order_his>
+                          </View>
+                          </View>
                         </View>
                     </View>
+
                 </AtTabsPane>
                 {/* 退单界面 */}
                 <AtTabsPane current={this.state.current} index={2}>

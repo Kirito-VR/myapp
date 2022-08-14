@@ -10,12 +10,7 @@ import Taro from "@tarojs/taro";
 export default class index extends Component{
 
     static defaultProps={
-        list: [
-            {id:1,name:"猪肉",cart_Amount:"1",cart_Money:"100",checked:true},
-            {id:2,name:"乌龟",cart_Amount:"5",cart_Money:"60",checked:true},
-            {id:3,name:"乌龟蛋",cart_Amount:"10",cart_Money:"150",checked:true},
-            {id:4,name:"烤乌龟",cart_Amount:"5",cart_Money:"120",checked:false}
-        ]
+        list: Taro.getStorageSync("cart_List")
     }
 
     getTotalPrice(){
@@ -23,8 +18,8 @@ export default class index extends Component{
         // console.log(list);
         var total = 0;
         for (var i = 0; i <this.props.list.length; i++) {
-            if (this.props.list[i].checked) {
-            total += this.props.list[i].cart_Amount * this.props.list[i].cart_Money
+            if (this.props.list[i].checked==1) {
+            total += this.props.list[i].cart_number * this.props.list[i].price
         }}
         return total;
     }
@@ -33,9 +28,9 @@ export default class index extends Component{
         const index = e.currentTarget.dataset.index
         const list=this.props.list;
         console.log(list);
-        let cart_Amount = list[index].cart_Amount
-        cart_Amount = cart_Amount + 1
-        list[index].cart_Amount = cart_Amount
+        let cart_number = list[index].cart_number
+        cart_number = cart_number + 1
+        list[index].cart_number = cart_number
         this.setState({
            list:list
           })
@@ -47,7 +42,12 @@ export default class index extends Component{
         let list = this.props.list
         this.props.list.forEach(item => {
           if (id == item.id) {
-            item.checked = !item.checked
+            if(item.checked==1){
+              item.checked=0
+            }else {
+              item.checked=1
+            }
+
           }
         })
         // this.setState({
@@ -129,22 +129,22 @@ export default class index extends Component{
         {list.map((item)=>{
           return(
             <View className="cartlist"  key={index}>
-                {item.checked ? (
+                {item.checked==1 ? (
                       <Icon
                         type="success"
                         color="#b30000"
                         className="cartCheck"
-                        onClick={this.checkList.bind(this,item.id)}
+                        onClick={this.checkList.bind(this,item.goods_id)}
                       ></Icon>
                     ) : (
                       <Icon
                         type="circle"
                         className="cartCheck"
-                        onClick={this.checkList.bind(this,item.id)}
+                        onClick={this.checkList.bind(this,item.goods_id)}
                       ></Icon>)}
 
-              <View className="tradeHeader">商品编号：{item.id} </View>
-              <Text>{item.name}</Text>
+              <View className="tradeHeader">商品编号：{item.goods_id} </View>
+              <Text>{item.goods_name}</Text>
               <View class="Amount">
                       <Text
                         className="cart-count-down"
@@ -153,7 +153,7 @@ export default class index extends Component{
                       >
                         -
                       </Text>
-                      <Text className="cart-count-num">{item.cart_Amount}</Text>
+                      <Text className="cart-count-num">{item.cart_number}</Text>
                       <Text
                         className="cart-count-add"
                         onClick={this.addCount}
@@ -162,7 +162,7 @@ export default class index extends Component{
                         +
                       </Text>
                     </View>
-              <View class="Money">  ￥{item.cart_Money}</View>
+              <View class="Money">  ￥{item.price}</View>
             </View>
 
           )
@@ -171,15 +171,15 @@ export default class index extends Component{
               {checkAllStatus ? (
                 <Icon
                   type="success_circle"
-                  color="#b30000"
+                  color="azure"
                   className="checkAll"
                   onClick={this.checkAll}
                 ></Icon>
               ) : (
                 <Icon
                   type="circle"
-                  color="#b30000"
-                  className="checkall"
+                  color="azure"
+                  className="checkAll"
                   onClick={this.checkAll}
                 ></Icon>)}
                        <Text className="TotalPrice">合计：{this.getTotalPrice()}</Text>

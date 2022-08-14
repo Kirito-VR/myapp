@@ -1,6 +1,6 @@
 import {Component} from 'react';
 import {View,Text,Button} from "@tarojs/components";
-import { AtList, AtListItem,AtGrid,AtAvatar} from "taro-ui"
+import { AtList, AtListItem,AtGrid,AtAvatar } from "taro-ui"
 import "./index.scss";
 // @ts-ignore
 import Taro, { getOpenUserInfo, getUserInfo, login } from '@tarojs/taro'
@@ -40,15 +40,19 @@ export default class WxLogin extends Component{
             Taro.navigateTo({
                 url: '/pages/user/order/index',
               });
-              break;
-
             break;
 
         case "个人信息":
             Taro.navigateTo({
                 url: '/pages/user/userInfo/index',
               });
-          break;
+            break;
+
+        case "收货地址":
+            Taro.navigateTo({
+                url: '/pages/user/address/index',
+            });
+            break;
 
 
 
