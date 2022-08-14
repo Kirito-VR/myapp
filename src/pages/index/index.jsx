@@ -26,8 +26,8 @@ class Index extends Component {
   bossRecommend =()=>{
     Taro.navigateTo({
       url:
-        '/pages/user/address/index',
-      // ,'/pages/activity/activity',
+        // '/pages/user/address/index',
+      '/pages/activity/index',
     })
   }
   //外卖
@@ -65,13 +65,10 @@ class Index extends Component {
           }
           />
         </view>
-        跳转到登录界面
-        <view className='loginWechat' style='background-color: grey;width:100%;height:100px;' onClick={this.login.bind()}>
-          一键登录 加入会员
+        <view className='loginWechat' style='width:100%;height:250px;' onClick={this.login.bind()}>
         </view>
         {/*跳转页面，跳转到相应的活动界面，跳转到一个组件里*/}
-        <view className='activity-area' style='background-color:silver;width:100%;height:130px' onClick={this.bossRecommend.bind()}>
-          活动专区
+        <view className='activity-area' style='width:100%;height:200px' onClick={this.bossRecommend.bind()}>
         </view>
       </View>
 
