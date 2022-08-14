@@ -15,6 +15,7 @@ export default class WxLogin extends Component{
       userInfo:""
     }
   }
+
   componentDidShow(){
     this.setState({
                 userInfo:Taro.getStorageSync("login")
@@ -27,20 +28,19 @@ export default class WxLogin extends Component{
   }
 
   handleClick(value){
-   console.log( value);
-
+//    console.log( value);
    switch(value.value){
        case "收藏商品":
            Taro.switchTab({
             url: '/pages/index/index',
           });
-          console.log("111");
-         break;
-
+          console.log("111")
+        break;
         case "订单":
             Taro.navigateTo({
                 url: '/pages/user/order/index',
               });
+              break;
 
             break;
 

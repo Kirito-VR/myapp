@@ -4,13 +4,14 @@ export default defineAppConfig({
     'pages/user/index',
     'pages/cart/index',
     'pages/detail/index',
+    'pages/user/address/index',
+    'pages/user/address/newAddress/index',
+    'pages/user/address/editAddress/index',
     'pages/user/wxLogin/wxLogin',
     'pages/user/userInfo/index',
     'pages/detail/menu/index',
-    'pages/activity/activity',
-    'pages/user/order/index',
-    'pages/user/order/order_his/order_info/index',
-    'pages/user/order/order_his/order_detail/index',
+    'pages/activity/index',
+    'pages/user/order/index'
 
   ],
   window: {

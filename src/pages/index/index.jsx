@@ -1,8 +1,8 @@
 import React,{ Component } from 'react'
 import { connect } from 'react-redux'
-import { View, Button, Text ,Checkbox } from '@tarojs/components'
+import { View, Text  } from '@tarojs/components'
 import './index.scss'
-import { AtButton,AtGrid } from 'taro-ui'
+import {AtGrid,AtAvatar} from "taro-ui"
 import MySwiper from '../../components/swiper'
 import Taro  from "@tarojs/taro";
 
@@ -14,24 +14,26 @@ class Index extends Component {
     super(props);
     this.state={
       //轮播图图片
-      rotation_chart_images:['01','02','03','04','05']
+      rotation_chart_images:['01','02','03','04','05'],
+      avatarUrl:"../../images/me_yes.png",
+      nickName:"一键登录",
+      userInfo:""
     }
   }
-
   componentWillReceiveProps (nextProps) {
     console.log(this.props, nextProps)
   }
-  componentWillUnmount () { }
-  // componentDidMount(){
-  //   this.login
-  // }
-  componentDidShow () { }
+  componentDidShow(){
+    this.setState({
+                userInfo:Taro.getStorageSync("login")
+            })
+  }
   componentDidHide () { }
   //老板推荐函数
   bossRecommend =()=>{
     Taro.navigateTo({
       url:
-        '/pages/activity/activity',
+        '/pages/user/address/index',
       // ,'/pages/activity/activity',
     })
   }
@@ -46,12 +48,13 @@ class Index extends Component {
     })
   }
   render () {
+    const {nickName,avatarUrl,userInfo}=this.state;
     return (
       <View className='index' >
         {/*轮播图组件*/}
-        <view><MySwiper banner={this.state.rotation_chart_images}></MySwiper></view>
-        <view>
-          <AtGrid   className='atGrid'  columnNum='2' data={
+        <View><MySwiper banner={this.state.rotation_chart_images}></MySwiper></View>
+        <View>
+          <AtGrid className="atGrid" columnNum='2' data={
           [
             {
               //网页图片，添加监听函数，实现跳转，url应该是获取的，应定义一个自定义的数组，构造函数，在挂在组件之前就获得数据
@@ -65,19 +68,26 @@ class Index extends Component {
               key:'2222',
             },
           ]
-        }onClick ={
-            this.handClick.bind(this)
-          }
+        }
+        onClick ={this.handClick.bind(this)}
           />
-        </view>
-        {/*跳转到登录界面*/}
-        <view className='loginWechat' style='background-color: grey;width:100%;height:100px;' onClick={this.login.bind()}>
-          一键登录 加入会员
-        </view>
+        </View>
+
+        <View className="loginWechat" >
+            <View className="yiban">
+                <View className="Avatar">{!userInfo && <AtAvatar circle image={avatarUrl} className="hearder_img"></AtAvatar>}</View>
+                <View className="nick">{!userInfo && <Text className="nick_name" onClick={this.login.bind()}>{nickName}</Text>}</View>
+            </View>
+            <View className="yiban">
+                <View className="Avatar">{userInfo && <AtAvatar circle image={userInfo.avatarUrl} className="hearder_img"></AtAvatar>}</View>
+                <View className="nick">{userInfo && <Text className="nick_name">{userInfo.nickName}</Text>}</View>
+            </View>
+            
+        </View>
         {/*跳转页面，跳转到相应的活动界面，跳转到一个组件里*/}
-        <view className='activity-area' style='background-color:silver;width:100%;height:130px' onClick={this.bossRecommend.bind()}>
+        <View className="activity-area"  onClick={this.bossRecommend.bind()}>
           活动专区
-        </view>
+        </View>
       </View>
 
     )
