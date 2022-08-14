@@ -1,26 +1,41 @@
 .index {
-    flex-direction: column;
-    width: 100%;
-  }
+  flex-direction: column;
+  width: 100%;
+}
 
-.order_hist{
+.cart_hist {
   width: 100%;
   // background-color: aqua ;
 }
-.order_list{
+
+.cart_list {
   height: 200px;
   width: 100%;
   background-color: beige;
   margin: 20px auto 20px;
 }
 
-.Money{
+.Money {
   width: 200px;
   float: right;
   color: red;
-  font-size: 35px;
+  font-size: 30px;
 }
-.tradeHeader{
-    border-bottom:1px solid black;
-    font-size: 25px;
+
+.tradeHeader {
+  border-bottom: 1px solid black;
+  font-size: 25px;
+}
+
+.OrderInfo {
+  margin-top: 50px;
+}
+
+.btnOrderInfo {
+  font-size: small;
+  width: 160px;
+  float: right;
+  margin-right: 40px;
+  background-color: transparent;
+  border: 0;
 }
