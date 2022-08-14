@@ -5,12 +5,19 @@ import { AtSearchBar } from 'taro-ui'
 import { AtTabs, AtTabsPane } from 'taro-ui'
 import { AtFloatLayout } from "taro-ui"
 
+//import { AtAvatar } from 'taro-ui'
+
+
 export default class index extends Component{
   constructor (props) {
     super(props)
     this.state = {
       value: '0',
-      current:''
+      current:'',
+      goodsList: [],
+
+
+
     }
   }
   onChange (value) {
@@ -25,7 +32,8 @@ export default class index extends Component{
 
   handleClick (value) {
     this.setState({
-      current: value
+      current: value,
+
     })
   }
 
@@ -58,7 +66,24 @@ export default class index extends Component{
               ]}
               onClick={this.handleClick.bind(this)}>
               <AtTabsPane tabDirection='vertical' current={this.state.current} index={0}>
-                <View style='font-size:18px;text-align:center;height:600px;'>这是买鸡的</View>
+                <View className='at-row'>
+                  <View style='height:100px' className='at-col'>
+
+                  </View>
+                  <View className='at-col'>默认对齐方式 -- stretch</View>
+                </View>
+                <View className='at-row at-row__align--start'>
+                  <View style='height:100px' className='at-col'>B</View>
+                  <View className='at-col'>顶部对齐 -- start</View>
+                </View>
+                <View className='at-row at-row__align--center'>
+                  <View style='height:100px' className='at-col'>C</View>
+                  <View className='at-col'>居中对齐 -- center</View>
+                </View>
+                <View className='at-row at-row__align--end'>
+                  <View style='height:100px' className='at-col'>D</View>
+                  <View className='at-col'>底部对齐 -- end</View>
+                </View>
               </AtTabsPane>
               <AtTabsPane tabDirection='vertical' current={this.state.current} index={1}>
                 <View style='font-size:18px;text-align:center;height:600px;'>这是买鸭的</View>
